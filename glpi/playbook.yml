@@ -1,0 +1,8 @@
+  - hosts: glpi
+    remote_user: analista
+    become: yes
+    roles:
+      - server
+      - mariadb
+      - apache
+      - glpi

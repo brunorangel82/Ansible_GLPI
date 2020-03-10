@@ -1,0 +1,5 @@
+---
+# tasks file for server
+
+ - name: Role Server - Atualiza o cache apt do servidor
+   apt: update_cache=yes cache_valid_time=3600

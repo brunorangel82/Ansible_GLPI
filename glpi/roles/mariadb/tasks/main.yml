@@ -1,0 +1,22 @@
+---
+# tasks file for mariadb
+
+ - name: TP2 - MariaDB - Instalando MariaDB
+   become: yes
+   
+   apt: name={{ item }} state=present
+   with_items:
+   - mariadb-server
+   - mariadb-client
+   - python3-mysqldb
+   - python3-pymysql
+
+ - name: TP2 - MariaDB - Iniciando serviço
+   service:
+    name: mariadb
+    enabled: yes
+    state: started
+
+ - name: TP2 - MariaDB - Atualiza o cache apt do servidor
+   apt: update_cache=yes 
+

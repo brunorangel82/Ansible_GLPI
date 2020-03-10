@@ -1,0 +1,23 @@
+---
+# tasks file for apache
+
+ - name: TP2 - Apache - Instala o Apache
+   apt: name={{ item }} state=present
+   with_items:
+   - apache2 
+   - php 
+   - libapache2-mod-php
+   - php-json 
+   - php-gd 
+   - php-curl 
+   - php-mysql 
+   - php-mbstring
+   - php-xml 
+   - php-cli 
+   - php-imap 
+   - php-ldap 
+   - php-xmlrpc 
+   - php-apcu
+
+ - name: TP2 - Apache - Atualiza o cache apt do servidor
+   apt: update_cache=yes 

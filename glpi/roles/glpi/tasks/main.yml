@@ -1,0 +1,23 @@
+---
+# tasks file for glpi
+
+ - name: TP2 - GLPI - Realizando Downlaod do GLPI
+   command: wget https://github.com/glpi-project/glpi/releases/download/9.4.5/glpi-9.4.5.tgz
+
+ - name: TP2 - GLPI - Extraindo arquivos
+   unarchive:
+     src: /home/analista/glpi-9.4.5.tgz
+     dest: /var/www/html
+     remote_src: yes
+
+ - name: TP2 - GLPI - Permissão na pasta do GLPI
+   file: path=/var/www/html/glpi owner=analista group=analista mode=7777 state=directory recurse=yes
+
+ - name: TP2 - GLPI - Reiniciando serviço do Apache
+   service:
+     name: apache2
+     state: restarted
+
+ - name: TP2 - GLPI - Atualiza o cache apt do servidor
+   apt: update_cache=yes 
+
