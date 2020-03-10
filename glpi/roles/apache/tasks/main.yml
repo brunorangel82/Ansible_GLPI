@@ -18,6 +18,3 @@
    - php-ldap 
    - php-xmlrpc 
    - php-apcu
-
- - name: TP2 - Apache - Atualiza o cache apt do servidor
-   apt: update_cache=yes 
